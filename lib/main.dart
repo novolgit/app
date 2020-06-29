@@ -19,6 +19,7 @@ class MyAppState extends State<MyApp> {
     Search(),
     Profile(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -57,4 +58,5 @@ class MyAppState extends State<MyApp> {
         ),
       ),
     );
-  }}
+  }
+}

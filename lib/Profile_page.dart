@@ -14,102 +14,173 @@ class Profile extends StatelessWidget {
         centerTitle: true,
         title: Text('@username'),
       ),
-        body: ListView(
-          padding: const EdgeInsets.all(8),
-          children: <Widget>[
-            Column(
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    SizedBox(
-                      width: 30,
-                      height: 100,
+      body: ListView(
+        children: <Widget>[
+          Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  SizedBox(
+                    width: 30,
+                    height: 100,
+                  ),
+                  //              Align(
+                  //                alignment: Alignment.bottomRight,
+                  Container(
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage('images/icon.jpg'),
+                      radius: 40,
+                      backgroundColor: Colors.transparent,
                     ),
-      //              Align(
-      //                alignment: Alignment.bottomRight,
-                        Container(
-                          child: CircleAvatar(
-                            backgroundImage: AssetImage('images/icon.jpg'),
-                            radius: 20,
-                            backgroundColor: Colors.transparent,
-                          ),
+                  ),
+                  SizedBox(
+                    width: 80,
+                  ),
+                  Column(
+                    children: <Widget>[
+                      Container(
+                        child: Center(
+                          child: Text(
+                            'Followers', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
                         ),
-                    SizedBox(
-                      width: 80,
+                      ),
+                      Container(
+                        child: Center(
+                          child: Text(
+                            'Мульон', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    width: 50,
+                  ),
+                  Column(
+                    children: <Widget>[
+                      Container(
+                        child: Center(
+                          child: Text(
+                            'Following', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                        ),
+                      ),
+                      Container(
+                        child: Center(
+                          child: Text(
+                            '0', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              Container(
+                color: Colors.black,
+                width: 1000,
+                height: 1,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: <Widget>[
+                  Container(
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage('images/icon.jpg'),
+                      radius: 20,
+                      backgroundColor: Colors.transparent,
                     ),
-                    Column(
-                      children: <Widget>[
-                        Container(
-                          child: Center(
-                            child: Text(
-                              'Followers', style: TextStyle(fontSize: 16),),
-                          ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Column(
+                    children: <Widget>[
+                      Container(
+                        child: Center(
+                          child: Text(
+                            '@username', style: TextStyle(fontSize: 16,
+                              fontWeight: FontWeight.bold),),
                         ),
-                        Container(
-                          child: Center(
-                            child: Text(
-                              'Мульон', style: TextStyle(fontSize: 16),),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      width: 50,
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Container(
-                          child: Center(
-                            child: Text(
-                              'Following', style: TextStyle(fontSize: 16),),
-                          ),
-                        ),
-                        Container(
-                          child: Center(
-                            child: Text(
-                              '0', style: TextStyle(fontSize: 16),),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                color: Colors.red,
+                height: 400,
+                width: 500,
+                child: Flexible(
+                  fit: FlexFit.loose,
+                  child: Image.asset('images/duck.jpg', fit: BoxFit.cover),
                 ),
-                Container(
-                  color: Colors.black,
-                  width: 1000,
-                  height: 1,
-                ),
-              ],
-            ),
-          ],
-        ),
-      );
-  }
-}
+              ),
+              Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.favorite,
+                  ),
+                  Text('МУльон - 1 likes'),
+                IconButton(
+                  icon: Icon(
+                      Icons.comment),
+                  ),
+                  Text('23 comments')
+                ],
+              ),
+              Container(
+                color: Colors.black,
+                width: 1000,
+                height: 1,
+              ),
 
-Widget _getListView() {
-  var listView = ListView(
-    children: <Widget>[
-      Container(
-        width: 10,
-        height: 50,
-        child: ListTile(
-          leading: CircleAvatar(
-            backgroundImage: AssetImage('images/icon.jpg'),
-            radius: 20,
-            backgroundColor: Colors.transparent,
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: <Widget>[
+                  Container(
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage('images/icon.jpg'),
+                      radius: 20,
+                      backgroundColor: Colors.transparent,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Column(
+                    children: <Widget>[
+                      Container(
+                        child: Center(
+                          child: Text(
+                            '@username', style: TextStyle(fontSize: 16,
+                              fontWeight: FontWeight.bold),),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                color: Colors.red,
+                height: 400,
+                width: 500,
+                child: Flexible(
+                  fit: FlexFit.loose,
+                  child: Image.asset('images/duck.jpg', fit: BoxFit.cover),
+                ),
+              ),
+            ],
           ),
-        ),
+        ],
       ),
-
-      ListTile(
-        leading: Icon(Icons.person_outline),
-        title: Center(child: Text("Followers")),
-        trailing: Text("600"),
-        onTap: () {
-          debugPrint('tapped 1 of list');
-        },
-      ),
-    ],
-  );
+    );
+  }
 }

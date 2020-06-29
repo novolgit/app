@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
 
+  static int page = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,22 +19,7 @@ class HomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
-              Container(
-                color: Colors.red,
-                width: 300,
-                height: 300,
-                child: Center(
-                  child: Text('Subscribe'),
-                ),
-              ),
-              Container(
-                color: Colors.red,
-                width: 300,
-                height: 300,
-                child: Center(
-                  child: Text('Subscribe'),
-                ),
-              ),
+              
             ],
           ),
         ),
@@ -40,4 +27,6 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
+
 
