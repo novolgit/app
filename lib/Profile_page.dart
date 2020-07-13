@@ -1,183 +1,227 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'ViewPostScreen.dart';
 
-class Profile extends StatelessWidget {
-
+class Statistic_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.red.withOpacity(0.3),
-        elevation: 0,
-        centerTitle: true,
-        title: Text('@username'),
-      ),
-      body: ListView(
-        children: <Widget>[
-          Column(
-            children: <Widget>[
-              Row(
+      body: CustomScrollView(
+        physics: AlwaysScrollableScrollPhysics(),
+        slivers: <Widget>[
+          SliverAppBar(
+            pinned: true,
+            floating: false,
+            expandedHeight: 160.0,
+            centerTitle: true,
+            backgroundColor: Colors.white,
+            title: Text('LOGO',
+              style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black
+              ),
+            ),
+            flexibleSpace: FlexibleSpaceBar(
+              background: Image.asset('images/appBar.jpeg', fit: BoxFit.fill,),
+            ),
+          ),
+          SliverFixedExtentList(
+            itemExtent: 100,
+            delegate: SliverChildListDelegate([
+              Column(
                 children: <Widget>[
-                  SizedBox(
-                    width: 30,
-                    height: 100,
-                  ),
-                  //              Align(
-                  //                alignment: Alignment.bottomRight,
-                  Container(
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage('images/icon.jpg'),
-                      radius: 40,
-                      backgroundColor: Colors.transparent,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 80,
-                  ),
-                  Column(
+                  Row(
                     children: <Widget>[
-                      Container(
-                        child: Center(
-                          child: Text(
-                            'Followers', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-                        ),
+                      SizedBox(
+                        width: 30,
+                        height: 100,
                       ),
                       Container(
-                        child: Center(
-                          child: Text(
-                            'Мульон', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage('images/icon.jpg'),
+                          radius: 40,
                         ),
                       ),
-                    ],
-                  ),
-                  SizedBox(
-                    width: 50,
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Container(
-                        child: Center(
-                          child: Text(
-                            'Following', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-                        ),
+                      SizedBox(
+                        width: 80,
                       ),
-                      Container(
-                        child: Center(
-                          child: Text(
-                            '0', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-                        ),
+                      Column(
+                        children: <Widget>[
+                          Container(
+                            child: Center(
+                              child: Text(
+                                'Followers', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                            ),
+                          ),
+                          Container(
+                            child: Center(
+                              child: Text(
+                                'Мульон', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        width: 50,
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Container(
+                            child: Center(
+                              child: Text(
+                                'Following', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                            ),
+                          ),
+                          Container(
+                            child: Center(
+                              child: Text(
+                                '0', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
                 ],
               ),
-              Container(
-                color: Colors.black,
-                width: 1000,
-                height: 1,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: <Widget>[
-                  Container(
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage('images/icon.jpg'),
-                      radius: 20,
-                      backgroundColor: Colors.transparent,
+            ]),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate([
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 560,
+                  decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(25.0)),
+                    child: Column(
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 10.0),
+                          child: Column(
+                            children: <Widget>[
+                              ListTile(
+                                leading: Container(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black45,
+                                        offset: Offset(0, 2),
+                                        blurRadius: 6.0,
+                                      ),
+                                    ],
+                                  ),
+                                  child: CircleAvatar(
+                                    child: ClipOval(
+                                      child: Image(
+                                        height: 50.0,
+                                        width: 50.0,
+                                        image: AssetImage('images/icon.jpg'),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                title: Text(
+                                  'posts[index].authorName',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                subtitle: Text('posts[index].timeAgo'),
+                              ),
+                              InkWell(
+                                onDoubleTap: () => print('liked post'),
+                                onTap: (){
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (_) => ViewPostScreen(),
+                                    ),
+                                  );
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.all(10.0),
+                                  width: double.infinity,
+                                  height: 400,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(25.0),
+                                    boxShadow:[
+                                      BoxShadow(
+                                      color: Colors.black,
+                                      offset: Offset(0,5),
+                                      blurRadius: 8.0
+                                      ),
+                                    ],
+                                    image: DecorationImage(
+                                        image: AssetImage('images/duck.jpg'),
+                                        fit: BoxFit.cover)
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: <Widget>[
+                                    Row(
+                                      children: <Widget>[
+                                        IconButton(
+                                          icon: Icon(Icons.favorite_border),
+                                          iconSize: 30.0,
+                                          onPressed: () => print('Like post'),
+                                        ),
+                                        Text(
+                                          '777',
+                                          style: TextStyle(
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width: 20.0,
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        IconButton(
+                                          icon: Icon(Icons.comment),
+                                          iconSize: 30.0,
+                                          onPressed: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (_) => ViewPostScreen()
+                                                ),
+                                            );
+                                          }
+                                        ),
+                                        Text(
+                                          '36',
+                                          style: TextStyle(
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
                     ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Container(
-                        child: Center(
-                          child: Text(
-                            '@username', style: TextStyle(fontSize: 16,
-                              fontWeight: FontWeight.bold),),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                color: Colors.red,
-                height: 400,
-                width: 500,
-                child: Flexible(
-                  fit: FlexFit.loose,
-                  child: Image.asset('images/duck.jpg', fit: BoxFit.cover),
                 ),
               ),
-              Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.favorite,
-                  ),
-                  Text('МУльон - 1 likes'),
-                IconButton(
-                  icon: Icon(
-                      Icons.comment),
-                  ),
-                  Text('23 comments')
-                ],
-              ),
-              Container(
-                color: Colors.black,
-                width: 1000,
-                height: 1,
-              ),
-
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: <Widget>[
-                  Container(
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage('images/icon.jpg'),
-                      radius: 20,
-                      backgroundColor: Colors.transparent,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Container(
-                        child: Center(
-                          child: Text(
-                            '@username', style: TextStyle(fontSize: 16,
-                              fontWeight: FontWeight.bold),),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                color: Colors.red,
-                height: 400,
-                width: 500,
-                child: Flexible(
-                  fit: FlexFit.loose,
-                  child: Image.asset('images/duck.jpg', fit: BoxFit.cover),
-                ),
-              ),
-            ],
+            ]),
           ),
         ],
       ),

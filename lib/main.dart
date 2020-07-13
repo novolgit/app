@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'Home_page.dart';
 import 'Search_page.dart';
 import 'Profile_page.dart';
+import 'Module/Login/login_view.dart';
+import 'Inst_Login.dart';
+import 'auth.dart';
 
 void main() => runApp(new MyApp());
 
@@ -16,23 +19,14 @@ class MyAppState extends State<MyApp> {
   int _selectedTab = 0;
   final _pageOptions = [
     HomePage(),
-    Search(),
-    Profile(),
+    LoginPage(),
+    Statistic_page(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-          primarySwatch: Colors.grey,
-          primaryTextTheme: TextTheme(
-            title: TextStyle(color: Colors.white),
-          )),
       home: Scaffold(
-//        appBar: AppBar(
-//          centerTitle: true,     // static appbar for app
-//          title: Text('InstaSpy'),
-//        ),
         body: _pageOptions[_selectedTab],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedTab,

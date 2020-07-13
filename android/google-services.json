@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "538004423021",
+    "firebase_url": "https://checkall-7bd44.firebaseio.com",
+    "project_id": "checkall-7bd44",
+    "storage_bucket": "checkall-7bd44.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538004423021:android:83f4d4d20f939dd96d9a64",
+        "android_client_info": {
+          "package_name": "com.example.masterlogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538004423021-mk1e8mlr80pf9che01h8c1mo1tq5e074.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8FIgZ-RDQb6rclJLEuCRTkOCuLc6K5D0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "538004423021-mk1e8mlr80pf9che01h8c1mo1tq5e074.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
